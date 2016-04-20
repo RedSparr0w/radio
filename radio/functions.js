@@ -15,6 +15,8 @@ if (localStorage.getItem('Radios')){
 		});
 		i++;
 	});
+}else if(!colorSupported){
+	$('#gen .row').after('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Warning!</strong> This browser does not support color input. To be able to change the color of the in-game Radio Menu text please use <a href="https://www.google.com/chrome/">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> or refer <a href="http://caniuse.com/#feat=input-color">Here</a> for other options</div>');
 }
 
 //Get commands list & enable autocomplete
