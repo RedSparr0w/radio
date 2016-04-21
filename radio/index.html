@@ -12,14 +12,13 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<script>
-	var colorSupported=true;
 	try {
 		var input = document.createElement("input");
 
 		input.type = "color";
 
 		if (input.type === "color") {
-			console.log("supported");
+			colorSupported=true;
 		} else {
 			var css = '.colorPicker{display:none !important;}',
 			head = document.head || document.getElementsByTagName('head')[0],
