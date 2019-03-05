@@ -1,152 +1,211 @@
-::-moz-selection { /* Code for Firefox */
-    color: white;
-    background: #333;
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #333;
 }
 
 ::selection {
-    color: white; 
-    background: #333;
+  color: white;
+  background: #333;
 }
 
 body {
-	position:relative;
-    background-color: white;
-    background-image: url(../extras/background.png);
-    background-size: cover;
-}
-.navbar-header{
-	color:white;
-	width:100%;
-	text-align:center;
-}
-option {
-    background-color: white;
-    border: solid;
-    border-color: gray;
-    margin-bottom: 5px;
-}
-.panel{
-	padding-left:0px;
-	padding-right:0px;
-}
-.panel-body{
-	padding:0px;
-}
-.list-group{
-	min-height: 300px;
-}
-.list-group-item{
-	cursor:move;
-	cursor:grab;
-	cursor:-webkit-grab;
-	cursor:-moz-grab;
-}
-.list-group-item:hover
-{
-	background:#eeeeee;
-}
-.panel:not(#unused) .list-group-item:nth-child(+n+10){
-	background-color: #f39c12;
-}
-.list-group-item .glyphicon {
-	float:right;
-	cursor:default;
-	font-size:20px;
-}
-.glyphicon-remove-sign{
-	color:red;
-	cursor:pointer !important;
-}
-.colorPicker{
-    border-radius: 50px;
-    float: right;
-    height: 20px;
-    position: relative;
-    overflow: hidden;
-    width: 20px;
-	cursor:pointer;
-}
-.colorPicker input{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid black;
-    top: -8px;
-    left: -8px;
-	cursor:pointer;
-}
-*{
-  user-select: none;
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* IE/Edge */
-}
-pre, code {
-  user-select: all;
-  -webkit-user-select: all;   /* Chrome/Safari/Opera */
-  -khtml-user-select: all;    /* Konqueror */
-  -moz-user-select: all;      /* Firefox */
-  -ms-user-select: all;       /* IE/Edge */
-}
-#content{
-	padding-bottom:50px;
-}
-#footer {
-	background-color:#333;
-	color:white;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	padding-top:20px;
-	border-top:solid 1px #ccc;
-	text-align:center;
-}
-#Credits{
-	text-align:center;
-}
-#Credits img{
-	width:50px;
-	height:50px;
-	margin-left:5px;
-	margin-right:5px;
-}
-#CustomCommands .input-group{
-	width:100%;
-}
-#CustomCommands .input-group-addon{
-	padding:0px;
-}
-#CustomCommands [type=color]{
-	height:100%;
-	width:30px;
-	padding:0px;
-	margin:0px;
+  position: relative;
+  background-color: white;
+  background-image: url(../extras/background.png);
+  background-size: cover;
 }
 
-.tooltip,.tooltip-inner{
-	max-width:100%;
-	white-space:nowrap;
+.navbar-header {
+  color: white;
+  width: 100%;
+  text-align: center;
 }
-.highlight .tooltip-arrow{
-	border-top-color: #3498db !important;
+
+option {
+  background-color: white;
+  border: solid;
+  border-color: gray;
+  margin-bottom: 5px;
 }
-.highlight .tooltip-inner{
-	background-color:#3498db;
+
+.panel {
+  padding-left: 0px;
+  padding-right: 0px;
 }
-.tooltip-arrow,.tooltip-inner{
-	transition:background-color 1s,border-top-color 1s;
+
+.panel-body {
+  padding: 0px;
 }
-.sortable-ghost
-{
-	background:#3498db !important;
+
+.list-group {
+  min-height: 300px;
 }
-.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
-.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
-.autocomplete-selected { background: #F0F0F0; }
-.autocomplete-suggestions strong { font-weight: normal;background-color:#CCC; }
-.autocomplete-group { padding: 2px 5px; }
-.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+
+.list-group-item {
+  cursor: move;
+  cursor: grab;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+}
+
+.list-group-item:hover {
+  background: #eeeeee;
+}
+
+.panel:not(#unused) .list-group-item:nth-child(+n+10) {
+  background-color: #f39c12;
+}
+
+.list-group-item .glyphicon {
+  float: right;
+  cursor: default;
+  font-size: 20px;
+}
+
+.glyphicon-remove-sign {
+  color: red;
+  cursor: pointer !important;
+}
+
+.colorPicker {
+  border-radius: 50px;
+  float: right;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+  width: 20px;
+  cursor: pointer;
+}
+
+.colorPicker input {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid black;
+  top: -8px;
+  left: -8px;
+  cursor: pointer;
+}
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+}
+
+pre,
+code {
+  user-select: all;
+  -webkit-user-select: all;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: all;
+  /* Konqueror */
+  -moz-user-select: all;
+  /* Firefox */
+  -ms-user-select: all;
+  /* IE/Edge */
+}
+
+#content {
+  padding-bottom: 50px;
+}
+
+#footer {
+  background-color: #333;
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 20px;
+  border-top: solid 1px #ccc;
+  text-align: center;
+}
+
+#Credits {
+  text-align: center;
+}
+
+#Credits img {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#CustomCommands .input-group {
+  width: 100%;
+}
+
+#CustomCommands .input-group-addon {
+  padding: 0px;
+}
+
+#CustomCommands [type=color] {
+  height: 100%;
+  width: 30px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.tooltip,
+.tooltip-inner {
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.highlight .tooltip-arrow {
+  border-top-color: #3498db !important;
+}
+
+.highlight .tooltip-inner {
+  background-color: #3498db;
+}
+
+.tooltip-arrow,
+.tooltip-inner {
+  transition: background-color 1s, border-top-color 1s;
+}
+
+.sortable-ghost {
+  background: #3498db !important;
+}
+
+.autocomplete-suggestions {
+  border: 1px solid #999;
+  background: #FFF;
+  overflow: auto;
+}
+
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.autocomplete-selected {
+  background: #F0F0F0;
+}
+
+.autocomplete-suggestions strong {
+  font-weight: normal;
+  background-color: #CCC;
+}
+
+.autocomplete-group {
+  padding: 2px 5px;
+}
+
+.autocomplete-group strong {
+  display: block;
+  border-bottom: 1px solid #000;
+}

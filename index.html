@@ -1,232 +1,453 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+<!DOCTYPE html>
 <html>
 <head>
-    <title>CS:GO radiopanel.txt generator</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<script>
-	try {
-		var input = document.createElement("input");
+  <title>CS:GO radiopanel.txt generator</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet" type="text/css">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <script>
+    let = colorSupported = true;
+    try {
+      var input = document.createElement("input");
 
-		input.type = "color";
+      input.type = "color";
 
-		if (input.type === "color") {
-			colorSupported=true;
-		} else {
-			var css = '.colorPicker{display:none !important;}',
-			head = document.head || document.getElementsByTagName('head')[0],
-			style = document.createElement('style');
+      if (input.type === "color") {
+        colorSupported = true;
+      } else {
+        var css = '.colorPicker{display:none !important;}',
+          head = document.head || document.getElementsByTagName('head')[0],
+          style = document.createElement('style');
 
-			style.type = 'text/css';
-			if (style.styleSheet){
-			  style.styleSheet.cssText = css;
-			} else {
-			  style.appendChild(document.createTextNode(css));
-			}
-			colorSupported=false;
-			head.appendChild(style);
-		}
-	} catch(e) {
-			var css = '.colorPicker{display:none !important;}',
-			head = document.head || document.getElementsByTagName('head')[0],
-			style = document.createElement('style');
+        style.type = 'text/css';
+        if (style.styleSheet) {
+          style.styleSheet.cssText = css;
+        } else {
+          style.appendChild(document.createTextNode(css));
+        }
+        colorSupported = false;
+        head.appendChild(style);
+      }
+    } catch (e) {
+      var css = '.colorPicker{display:none !important;}',
+        head = document.head || document.getElementsByTagName('head')[0],
+        style = document.createElement('style');
 
-			style.type = 'text/css';
-			if (style.styleSheet){
-			  style.styleSheet.cssText = css;
-			} else {
-			  style.appendChild(document.createTextNode(css));
-			}
-			colorSupported=false;
-			head.appendChild(style);
-	}
-	</script>
+      style.type = 'text/css';
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+        style.appendChild(document.createTextNode(css));
+      }
+      colorSupported = false;
+      head.appendChild(style);
+    }
+  </script>
 </head>
 
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<h2>CS:GO RadioPanel Generator</h2>
-			</div>
-		</div>
-	</nav>
-	<div id="content" class="container-fluid">
-		<div id="gen" class="col-md-9 col-sm-12 col-xs-12">
-			<h3>Radio's:</h3>
-			<div class="row">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div id="radio1" class="panel panel-default">
-					  <div class="panel-heading">
-						<span class="panel-title" data-toggle="tooltip" title="Radio Menu Name<br>(click to edit)" contenteditable>Radio 1</span><kbd data-toggle="tooltip" title="Default key to open this menu in game" style="float:right;">Z</kbd>
-					  </div>
-					  <div class="panel-body" >
-						<ul id="radio1List" class="list-group">
-							<li class="list-group-item" label="Go!" value="go" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="go"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Go!</li>
-
-							<li class="list-group-item" label="Team, Fall Back!" value="fallback" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="fallback"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Team, Fall Back!</li>
-
-							<li class="list-group-item" label="Stick Together, Team" value="sticktog" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="sticktog"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Stick Together, Team</li>
-
-							<li class="list-group-item" label="Hold This Position!" value="holdpos" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="holdpos"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Hold This Position!</li>
-
-							<li class="list-group-item" label="Follow Me!" value="followme" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="followme"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Follow Me!</li>
-						</ul>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div id="radio2" class="panel panel-default">
-					  <div class="panel-heading">
-						<span class="panel-title" data-toggle="tooltip" title="Radio Menu Name<br>(click to edit)" contenteditable>Radio 2</span><kbd data-toggle="tooltip" title="Default key to open this menu in game" style="float:right;" >X</kbd>
-					  </div>
-					  <div class="panel-body" >
-						<ul id="radio2List" class="list-group">
-							<li class="list-group-item" label="Yes" value="roger" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="roger"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Yes</li>
-
-							<li class="list-group-item" label="No" value="negative" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="negative"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>No</li>
-
-							<li class="list-group-item" label="Cheer" value="cheer" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="cheer"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Cheer</li>
-
-							<li class="list-group-item" label="Complement" value="compliment" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="compliment"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Complement</li>
-
-							<li class="list-group-item" label="Thanks" value="thanks" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="thanks"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Thanks</li>
-						</ul>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div id="radio3" class="panel panel-default">
-					  <div class="panel-heading">
-						<span class="panel-title" data-toggle="tooltip" title="Radio Menu Name<br>(click to edit)" contenteditable>Radio 3</span><kbd data-toggle="tooltip" title="Default key to open this menu in game" style="float:right;" >C</kbd>
-					  </div>
-					  <div class="panel-body" >
-						<ul id="radio3List" class="list-group">
-							<li class="list-group-item" label="Enemy Spotted" value="enemyspot" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="enemyspot"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Enemy Spotted</li>
-
-							<li class="list-group-item" label="Need Backup" value="needbackup" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="needbackup"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Need Backup</li>
-
-							<li class="list-group-item" label="You Take the Point" value="takepoint" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="takepoint"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>You Take the Point</li>
-
-							<li class="list-group-item" label="Sector Clear" value="sectorclear" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="sectorclear"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Sector Clear</li>
-
-							<li class="list-group-item" label="I'm in Position" value="inposition" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="inposition"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>I'm in Position</li>
-						</ul>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div id="unused" class="panel panel-default">
-					  <div class="panel-heading">
-						<span class="panel-title">Unused</span>
-					  </div>
-					  <div class="panel-body" >
-						<ul id="unusedList" class="list-group">
-							<li class="list-group-item" label="Cover Me!" value="coverme" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="coverme"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Cover Me!</li>
-
-							<li class="list-group-item" label="Regroup, Team!" value="regroup" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="regroup"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Regroup, Team!</li>
-
-							<li class="list-group-item" label="Taking Fire, Need Assistance!" value="takingfire" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="takingfire"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Taking Fire, Need Assistance!</li>
-
-							<li class="list-group-item" label="Report In" value="report" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="report"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Report In</li>
-
-							<li class="list-group-item" label="She's gonna Blow!" value="getout" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="getout"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>She's gonna Blow!</li>
-
-							<li class="list-group-item" label="Enemy Down" value="enemydown" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="enemydown"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Enemy Down</li>
-
-							<li class="list-group-item" label="Reporting In" value="reportingin" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="reportingin"></span><div class="colorPicker"><input type="color" value="#cccccc"></div>Reporting In</li>
-						</ul>
-					  </div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-sm-12 col-xs-12">
-				<p>Drag and drop items from each box.</p>
-				<p>The items in the unused column will not be included in the radiopanel.txt file.</p>
-				<p>Rename your original "radiopanel.txt" to something else as a backup</p>
-				<p>Place the new radiopanel.txt file in your CS:GO directory:<br>
-				<i><code><strong>steam folder</strong>/steamapps/common/Counter-Strike Global Offensive/csgo/resource/ui/</code></i></p>
-			</div>
-			<div class="col-md-6 col-sm-12 col-xs-12">
-				<button id="Generate" class="btn btn-success col-md-4">Download <span class="glyphicon glyphicon-download-alt"></span></button>
-				<button id="View" data-toggle="modal" data-target="#OutputModal" class="btn btn-primary col-md-4">View <span class="glyphicon glyphicon-new-window"></span></button>
-				<button id="Reset" class="btn btn-danger col-md-4">Reset <span class="glyphicon glyphicon-refresh"></span></button>
-			</div>
-		</div>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <h2>CS:GO RadioPanel Generator</h2>
+      </div>
+    </div>
+  </nav>
 
 
-		<div id="optionsDiv"  class="col-md-3 col-sm-12 col-xs-12">
-			<h3>Create Custom Commands</h3>
-			<form id="CustomCommands" class="form-group">
-				<label for="NewLabel">Label/Name:</label>
-				<div class="input-group">
-					<input type="text" class="form-control" autocomplete="off" id="NewLabel" placeholder="Label/Name" required>
-				</div>
-				<label for="NewCommand">Command(s):</label>
-				<div class="input-group">
-					<textarea class="form-control" autocomplete="off" id="NewCommand" placeholder="Command(s)" required></textarea>
-				</div>
-				<button type="submit" id="CreateNew" class="btn btn-success">Create Command</button>
-				<button type="submit" id="FormatNew" class="btn btn-primary">Format Command</button>
-			</form>
+  <div class="container-fluid" id="content">
+    <div class="col-md-9 col-sm-12 col-xs-12" id="gen">
+      <h3>Radio's:</h3>
 
-			<p>The "label" text box is the label for the entry.<br>
-			This may contain spaces.</p>
 
-			<p>The "Command" text box is the actual CS:GO Console command that will be used.</p>
-			<p>Example: <pre>voice_enable 0</pre></p>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="panel panel-default" id="radio1">
+            <div class="panel-heading">
+              <span class="panel-title" contenteditable="" data-toggle="tooltip" title="Radio Menu Name&lt;br&gt;(click to edit)">Radio 1</span><kbd data-toggle="tooltip" style="float:right;" title="Default key to open this menu in game">Z</kbd>
+            </div>
 
-			<p>Multi-line commands <strong>work!</strong><br>
-			In the command box, enter your commands in this format: <pre>sv_cheats 1;cl_drawhud 0;noclip</pre> or click the format button and we will do it for you!</p>
-			<p><strong>Do not</strong> enter alias/bind commands which activate multiple actions at once like so: <pre style="color:red">bind "h" "+jump;-attack"</pre> as the quote marks are removed when added, so your command will not execute as intended</p>
 
-		</div>
-	</div>
-	<div id="Credits" class="modal fade" role="dialog">
-	  <div class="modal-dialog modal-sm">
+            <div class="panel-body">
+              <ul class="list-group" id="radio1List">
+                <li class="list-group-item" draggable="true" value="go">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="go"></span>
 
-		<!-- Modal content-->
-		<div class="modal-content">
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h2 class="modal-title">Credits</h2>
-		  </div>
-		  <div class="modal-body">
-			<h3>mcJustWas</h3>
-			<span><a href="https://github.com/Schwaitz" target="_BLANK"><img src="images/github.svg"></a><a href="https://steamcommunity.com/id/kuuy/" target="_BLANK"><img src="images/steam.svg"></a><a href="https://www.reddit.com/user/mcJustWas" target="_BLANK"><img src="images/reddit.svg"></a><a href="http://justwas.com" target="_BLANK"><img src="images/website.svg"></a></span>
-			<h3>RedSparr0w</h3>
-			<span><a href="https://github.com/RedSparr0w" target="_BLANK"><img src="images/github.svg"></a><a href="http://steamcommunity.com/id/RedSparr0w/" target="_BLANK"><img src="images/steam.svg"></a><a href="https://www.reddit.com/user/RedSparr0vv/" target="_BLANK"><img src="images/reddit.svg"></a><a href="http://csgo.redsparr0w.com" target="_BLANK"><img src="images/website.svg"></a></span>
-		  </div>
-		</div>
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Go!
+                </li>
 
-	  </div>
-	</div>
-	<div id="OutputModal" class="modal fade" role="dialog">
-	  <div class="modal-dialog modal-lg">
 
-		<!-- Modal content-->
-		<div class="modal-content">
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h2 class="modal-title">Output</h2>
-		  </div>
-		  <div class="modal-body">
-        <pre><code id="OutputCode"></code></pre>
-		  </div>
-		</div>
+                <li class="list-group-item" draggable="true" value="fallback">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="fallback"></span>
 
-	  </div>
-	</div>
-	<div id="footer" class="container-fluid">
-		<p>created for <a href="http://www.reddit.com/r/GlobalOffensive" target="_BLANK">/r/GlobalOffensive</a> and <a href="http://www.reddit.com/r/GlobalOffensiveTrade" target="_BLANK">/r/GlobalOffensiveTrade</a> | <a href="https://github.com/Schwaitz/radio" target="_BLANK">Contribute @ Github</a> | <a href="" data-toggle="modal" data-target="#Credits">Credits</a></p>
-	</div>
-    <script src="javascript/jquery-2.2.3.min.js" type="text/javascript"></script>
-    <script src="javascript/jquery.autocomplete.min.js" type="text/javascript"></script>
-    <script src="javascript/sortable.min.js" type="text/javascript"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="javascript/functions.js" type="text/javascript"></script>
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Team, Fall Back!
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="sticktog">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="sticktog"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Stick Together, Team
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="holdpos">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="holdpos"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Hold This Position!
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="followme">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="followme"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Follow Me!
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="panel panel-default" id="radio2">
+            <div class="panel-heading">
+              <span class="panel-title" contenteditable="" data-toggle="tooltip" title="Radio Menu Name&lt;br&gt;(click to edit)">Radio 2</span><kbd data-toggle="tooltip" style="float:right;" title="Default key to open this menu in game">X</kbd>
+            </div>
+
+
+            <div class="panel-body">
+              <ul class="list-group" id="radio2List">
+                <li class="list-group-item" draggable="true" value="roger">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="roger"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Yes
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="negative">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="negative"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  No
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="cheer">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="cheer"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Cheer
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="compliment">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="compliment"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Complement
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="thanks">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="thanks"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Thanks
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="panel panel-default" id="radio3">
+            <div class="panel-heading">
+              <span class="panel-title" contenteditable="" data-toggle="tooltip" title="Radio Menu Name&lt;br&gt;(click to edit)">Radio 3</span><kbd data-toggle="tooltip" style="float:right;" title="Default key to open this menu in game">C</kbd>
+            </div>
+
+
+            <div class="panel-body">
+              <ul class="list-group" id="radio3List">
+                <li class="list-group-item" draggable="true" value="enemyspot">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="enemyspot"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Enemy Spotted
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="needbackup">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="needbackup"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Need Backup
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="takepoint">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="takepoint"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  You Take the Point
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="sectorclear">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="sectorclear"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Sector Clear
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="inposition">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="inposition"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  I'm in Position
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="panel panel-default" id="unused">
+            <div class="panel-heading">
+              <span class="panel-title">Unused</span>
+            </div>
+
+
+            <div class="panel-body">
+              <ul class="list-group" id="unusedList">
+                <li class="list-group-item" draggable="true" value="coverme">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="coverme"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Cover Me!
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="regroup">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="regroup"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Regroup, Team!
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="takingfire">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="takingfire"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Taking Fire, Need Assistance!
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="report">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="report"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Report In
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="getout">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="getout"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  She's gonna Blow!
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="enemydown">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="enemydown"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Enemy Down
+                </li>
+
+
+                <li class="list-group-item" draggable="true" value="reportingin">
+                  <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="reportingin"></span>
+
+                  <div class="colorPicker">
+                    <input type="color" value="#cccccc">
+                  </div>
+                  Reporting In
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <p>Drag and drop items from each box.</p>
+
+
+        <p>The items in the unused column will not be included in the radiopanel.txt file.</p>
+
+
+        <p>Rename your original "radiopanel.txt" to something else as a backup</p>
+
+
+        <p>Place the new radiopanel.txt file in your CS:GO directory:<br>
+        <i><code><strong>steam folder</strong>/steamapps/common/Counter-Strike Global Offensive/csgo/resource/ui/</code></i></p>
+      </div>
+
+
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <button class="btn btn-success col-md-4" id="Generate">Download <span class="glyphicon glyphicon-download-alt"></span></button> <button class="btn btn-primary col-md-4" data-target="#OutputModal" data-toggle="modal" id="View">View <span class="glyphicon glyphicon-new-window"></span></button> <button class="btn btn-danger col-md-4" id="Reset">Reset <span class="glyphicon glyphicon-refresh"></span></button>
+      </div>
+    </div>
+
+
+    <div class="col-md-3 col-sm-12 col-xs-12" id="optionsDiv">
+      <h3>Create Custom Commands</h3>
+
+
+      <form class="form-group" id="CustomCommands" name="CustomCommands">
+        <label for="NewLabel">Label/Name:</label>
+
+        <div class="input-group">
+          <input autocomplete="off" class="form-control" id="NewLabel" placeholder="Label/Name" required="" type="text">
+        </div>
+        <label for="NewCommand">Command(s):</label>
+
+        <div class="input-group">
+          <textarea class="form-control" id="NewCommand" placeholder="Command(s)" required=""></textarea>
+        </div>
+        <button class="btn btn-success" id="CreateNew" type="submit">Create Command</button> <button class="btn btn-primary" id="FormatNew" type="submit">Format Command</button>
+      </form>
+      <p>The "label" text box is the label for the entry.<br>
+      This may contain spaces.</p>
+      <p>The "Command" text box is the actual CS:GO Console command that will be used.</p>
+      <p>Example:</p>
+      <pre>voice_enable 0</pre>
+      <p>Multi-line commands <strong>work!</strong><br>
+      In the command box, enter your commands in this format:
+      <pre>sv_cheats 1;cl_drawhud 0;noclip</pre>
+      or click the format button and we will do it for you!</p>
+      <p><strong>Do not</strong> enter alias/bind commands which activate multiple actions at once like so:</p>
+
+      <pre style="color:red">bind "h" "+jump;-attack"</pre>as the quote marks are removed when added, so your command will not execute as intended
+      <p>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="Credits" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+
+          <h2 class="modal-title">Credits</h2>
+        </div>
+
+
+        <div class="modal-body">
+          <h3>mcJustWas</h3>
+          <span><a href="https://github.com/Schwaitz" target="_BLANK"><img src="images/github.svg"></a><a href="https://steamcommunity.com/id/kuuy/" target="_BLANK"><img src="images/steam.svg"></a><a href="https://www.reddit.com/user/mcJustWas" target="_BLANK"><img src="images/reddit.svg"></a><a href="http://justwas.com" target="_BLANK"><img src="images/website.svg"></a></span>
+
+          <h3>RedSparr0w</h3>
+          <span><a href="https://github.com/RedSparr0w" target="_BLANK"><img src="images/github.svg"></a><a href="http://steamcommunity.com/id/RedSparr0w/" target="_BLANK"><img src="images/steam.svg"></a><a href="https://www.reddit.com/user/RedSparr0vv/" target="_BLANK"><img src="images/reddit.svg"></a><a href="http://csgo.redsparr0w.com" target="_BLANK"><img src="images/website.svg"></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="OutputModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+
+          <h2 class="modal-title">Output</h2>
+        </div>
+
+
+        <div class="modal-body">
+          <pre><code id="OutputCode"></code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid" id="footer">
+    <p>created for <a href="http://www.reddit.com/r/GlobalOffensive" target="_BLANK">/r/GlobalOffensive</a> and <a href="http://www.reddit.com/r/GlobalOffensiveTrade" target="_BLANK">/r/GlobalOffensiveTrade</a> | <a href="https://github.com/Schwaitz/radio" target="_BLANK">Contribute @ Github</a> | <a data-target="#Credits" data-toggle="modal" href="">Credits</a></p>
+  </div>
+  <script src="javascript/jquery-2.2.3.min.js" type="text/javascript">
+  </script>
+  <script src="javascript/jquery.autocomplete.min.js" type="text/javascript">
+  </script>
+  <script src="javascript/sortable.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+  </script>
+  <script src="javascript/functions.js" type="text/javascript">
+  </script>
 </body>
 </html>
