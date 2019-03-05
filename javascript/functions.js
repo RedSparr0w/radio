@@ -249,7 +249,7 @@ function post(path, params, target, method) {
 function generateOutput() {
   const groups = ['standard', 'group', 'report'];
   let groupOutput = '';
-  groups.forEach((group, i) => {
+  groups.forEach(function(group, i){
     groupOutput += generateGroup(group, i);
   })
   return `"RadioPanel.txt"
