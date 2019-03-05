@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>CS:GO radiopanel.txt generator</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" rel="stylesheet">
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" rel="stylesheet">
   <link href="./style.css" rel="stylesheet" type="text/css">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <script>
-    let = colorSupported = true;
+    let colorSupported = true;
     try {
       var input = document.createElement("input");
 
@@ -71,7 +71,7 @@
 
             <div class="panel-body">
               <ul class="list-group" id="radio1List">
-                <li class="list-group-item" draggable="true" value="go">
+                <li class="list-group-item" draggable="true" label="Go!" value="go">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="go"></span>
 
                   <div class="colorPicker">
@@ -81,7 +81,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="fallback">
+                <li class="list-group-item" draggable="true" label="Team, Fall Back!" value="fallback">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="fallback"></span>
 
                   <div class="colorPicker">
@@ -91,7 +91,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="sticktog">
+                <li class="list-group-item" draggable="true" label="Stick Together, Team" value="sticktog">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="sticktog"></span>
 
                   <div class="colorPicker">
@@ -101,7 +101,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="holdpos">
+                <li class="list-group-item" draggable="true" label="Hold This Position!" value="holdpos">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="holdpos"></span>
 
                   <div class="colorPicker">
@@ -111,7 +111,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="followme">
+                <li class="list-group-item" draggable="true" label="Follow Me!" value="followme">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="followme"></span>
 
                   <div class="colorPicker">
@@ -134,7 +134,7 @@
 
             <div class="panel-body">
               <ul class="list-group" id="radio2List">
-                <li class="list-group-item" draggable="true" value="roger">
+                <li class="list-group-item" draggable="true" label="Yes" value="roger">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="roger"></span>
 
                   <div class="colorPicker">
@@ -144,7 +144,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="negative">
+                <li class="list-group-item" draggable="true" label="No" value="negative">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="negative"></span>
 
                   <div class="colorPicker">
@@ -154,7 +154,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="cheer">
+                <li class="list-group-item" draggable="true" label="Cheer" value="cheer">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="cheer"></span>
 
                   <div class="colorPicker">
@@ -164,7 +164,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="compliment">
+                <li class="list-group-item" draggable="true" label="Complement" value="compliment">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="compliment"></span>
 
                   <div class="colorPicker">
@@ -174,7 +174,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="thanks">
+                <li class="list-group-item" draggable="true" label="Thanks" value="thanks">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="thanks"></span>
 
                   <div class="colorPicker">
@@ -197,7 +197,7 @@
 
             <div class="panel-body">
               <ul class="list-group" id="radio3List">
-                <li class="list-group-item" draggable="true" value="enemyspot">
+                <li class="list-group-item" draggable="true" label="Enemy Spotted" value="enemyspot">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="enemyspot"></span>
 
                   <div class="colorPicker">
@@ -207,7 +207,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="needbackup">
+                <li class="list-group-item" draggable="true" label="Need Backup" value="needbackup">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="needbackup"></span>
 
                   <div class="colorPicker">
@@ -217,7 +217,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="takepoint">
+                <li class="list-group-item" draggable="true" label="You Take the Point" value="takepoint">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="takepoint"></span>
 
                   <div class="colorPicker">
@@ -227,7 +227,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="sectorclear">
+                <li class="list-group-item" draggable="true" label="Sector Clear" value="sectorclear">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="sectorclear"></span>
 
                   <div class="colorPicker">
@@ -237,7 +237,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="inposition">
+                <li class="list-group-item" draggable="true" label="I'm in Position" value="inposition">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="inposition"></span>
 
                   <div class="colorPicker">
@@ -260,7 +260,7 @@
 
             <div class="panel-body">
               <ul class="list-group" id="unusedList">
-                <li class="list-group-item" draggable="true" value="coverme">
+                <li class="list-group-item" draggable="true" label="Cover Me!" value="coverme">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="coverme"></span>
 
                   <div class="colorPicker">
@@ -270,7 +270,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="regroup">
+                <li class="list-group-item" draggable="true" label="Regroup, Team!" value="regroup">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="regroup"></span>
 
                   <div class="colorPicker">
@@ -280,7 +280,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="takingfire">
+                <li class="list-group-item" draggable="true" label="Taking Fire, Need Assistance!" value="takingfire">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="takingfire"></span>
 
                   <div class="colorPicker">
@@ -290,7 +290,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="report">
+                <li class="list-group-item" draggable="true" label="Report In" value="report">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="report"></span>
 
                   <div class="colorPicker">
@@ -300,7 +300,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="getout">
+                <li class="list-group-item" draggable="true" label="She's gonna Blow!" value="getout">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="getout"></span>
 
                   <div class="colorPicker">
@@ -310,7 +310,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="enemydown">
+                <li class="list-group-item" draggable="true" label="Enemy Down" value="enemydown">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="enemydown"></span>
 
                   <div class="colorPicker">
@@ -320,7 +320,7 @@
                 </li>
 
 
-                <li class="list-group-item" draggable="true" value="reportingin">
+                <li class="list-group-item" draggable="true" label="Reporting In" value="reportingin">
                   <a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-placement="bottom" data-toggle="tooltip" title="reportingin"></span>
 
                   <div class="colorPicker">
@@ -369,7 +369,7 @@
         <label for="NewCommand">Command(s):</label>
 
         <div class="input-group">
-          <textarea class="form-control" id="NewCommand" placeholder="Command(s)" required=""></textarea>
+          <textarea autocomplete="off" class="form-control" id="NewCommand" placeholder="Command(s)" required=""></textarea>
         </div>
         <button class="btn btn-success" id="CreateNew" type="submit">Create Command</button> <button class="btn btn-primary" id="FormatNew" type="submit">Format Command</button>
       </form>
@@ -445,7 +445,7 @@
   </script>
   <script src="javascript/sortable.min.js" type="text/javascript">
   </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+  <script crossorigin="anonymous" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
   </script>
   <script src="javascript/functions.js" type="text/javascript">
   </script>
