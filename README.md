@@ -2,7 +2,7 @@
 
 Open Source radiopanel.txt generator
 ======
-[radiopanel.txt Generator Link](http://redsparr0w.github.io/radio/index.html)
+[radiopanel.txt Generator Link](https://redsparr0w.github.io/radio/index.html)
 
 Instructions: 
   
