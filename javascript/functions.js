@@ -1,3 +1,5 @@
+var radios;
+
 //Check if items already stored in database
 if (localStorage.getItem('Radios')){
 	radios = JSON.parse(localStorage.getItem('Radios'));
@@ -40,21 +42,21 @@ function saveData() {
 	var rmArray2 = [];
 	var rmArray3 = [];
 	var unusedArr = [];
-	
+
 	$("#radio1 li").each(function() {
 		var label = $(this).attr("label");
 		var command = $(this).attr("value");
 		var color = $(this).find('input[type=color]').val();
 		rmArray1.push({label:label,command:command,color:color});
 	});
-	
+
 	$("#radio2 li").each(function() {
 		var label = $(this).attr("label");
 		var command = $(this).attr("value");
 		var color = $(this).find('input[type=color]').val();
 		rmArray2.push({label:label,command:command,color:color});
 	});
-	
+
 	$("#radio3 li").each(function() {
 		var label = $(this).attr("label");
 		var command = $(this).attr("value");
@@ -91,7 +93,7 @@ $(document).on('click','.glyphicon-remove-sign',function(e){
 //Format new command
 $("#FormatNew").click(function(e) {
 	e.preventDefault();
-	var cmd = $("#NewCommand").val().replace(/\/\/.*|\"/g,'').replace(/(?:\r\n|\r|\n)/g,";").replace(/\s+/g," ").replace(/;+|\s+;+|;+\s+/g,";");	
+	var cmd = $("#NewCommand").val().replace(/\/\/.*|\"/g,'').replace(/(?:\r\n|\r|\n)/g,";").replace(/\s+/g," ").replace(/;+|\s+;+|;+\s+/g,";");
 	if (cmd.substring(0,1)===";"){
 		cmd = cmd.substring(1);
 	}
@@ -110,16 +112,16 @@ $("#CreateNew").click(function(e) {
 		return;
 	}
 	var label = $("#NewLabel").val();
-	var cmd = $("#NewCommand").val().replace(/\/\/.*|\"/g,'').replace(/(?:\r\n|\r|\n)/g,";").replace(/\s+/g," ").replace(/;+|\s+;+|;+\s+/g,";");	
+	var cmd = $("#NewCommand").val().replace(/\/\/.*|\"/g,'').replace(/(?:\r\n|\r|\n)/g,";").replace(/\s+/g," ").replace(/;+|\s+;+|;+\s+/g,";");
 	if (cmd.substring(0,1)===";"){
 		cmd = cmd.substring(1);
 	}
 	if (cmd.substring(--cmd.length)===";"){
 		cmd = cmd.substring(0,--cmd.length);
 	}
-	
+
 	var str = '<li class="list-group-item" label="'+label+'" value="'+cmd+'" draggable="true"><a href=""><span class="glyphicon glyphicon-remove-sign"></span></a><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="'+cmd.replace(/;/g,";<br>")+'"></span><div class="colorPicker"><input type="color" value="#CCCCCC"></div>'+label+'</li>';
-	
+
 	$("#unusedList").append(str);
 	$('#NewLabel').blur().val('');
 	$('#NewCommand').blur().val('');
@@ -138,9 +140,7 @@ Sortable.create(unusedList, { group: "commands", filter: ".glyphicon", ghostClas
 $("#Generate").click(function(){
 	saveData();
 	delete radios.Unused;
-	post('./view.php', {
-		value: JSON.stringify(radios)
-	});
+	download('radiopanel.txt', generateOutput());
 });
 
 //View 'radiopanel.txt' in modal
@@ -148,9 +148,7 @@ $("#View").click(function(){
 	saveData();
 	console.log(radios);
 	delete radios.Unused;
-	post('./view.php?view', {
-		value: JSON.stringify(radios)
-	},"_BLANK");
+	document.getElementById('OutputCode').innerHTML = generateOutput();
 });
 
 //Delete stored data
@@ -184,4 +182,79 @@ function post(path, params, target, method) {
 
     document.body.appendChild(form);
     form.submit();
+}
+
+function generateOutput(){
+  const groups = ['standard', 'group', 'report'];
+  let groupOutput = '';
+  groups.forEach((group, i)=>{
+    groupOutput += generateGroup(group, i);
+  })
+  return `"RadioPanel.txt"
+{
+  "Groups"
+  {${groupOutput}
+  }
+}`.replace(/\r?\n/g, "\r\n");
+}
+
+function generateGroup(group, i){
+  const radioKeys = Object.keys(radios)
+
+  return `
+
+"${group}"
+{
+  "hotkey"	"${i}"
+  "title"	"${radioKeys[i]}"
+  "timeout"	"5"
+
+  "Commands"
+  {
+    ${generateCommands(radioKeys[i])}
+  }
+}`.replace(/\r?\n/g, "\r\n    ");
+}
+
+function generateCommands(radio){
+  let output = '';
+  for (i = 0; i < radios[radio].length && i < 9; i++){
+    if (radios[radio][i]['color'] != "#cccccc"){
+      output += `\n"<font color='${radios[radio][i]['color']}'>${radios[radio][i]['label']}</font>"`;
+    } else {
+      output += `\n"${radios[radio][i]['label']}"`;
+    }
+    output +=`
+{
+  "hotkey"	"${i}"
+  "label"	"${radios[radio][i]['label']}"
+  "cmd"	"${radios[radio][i]['command']}"
+}`
+  }
+  return output.replace(/\r?\n/g, "\r\n    ");
+}
+
+function selectOutput() {
+    if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById('OutputCode'));
+        range.select();
+    } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById('OutputCode'));
+        window.getSelection().addRange(range);
+    }
+}
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
 }

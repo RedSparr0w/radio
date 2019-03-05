@@ -78,10 +78,18 @@ option {
 	cursor:pointer;
 }
 *{
+  user-select: none;
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
   -khtml-user-select: none;    /* Konqueror */
   -moz-user-select: none;      /* Firefox */
   -ms-user-select: none;       /* IE/Edge */
+}
+#OutputCode {
+  user-select: all;
+  -webkit-user-select: all;   /* Chrome/Safari/Opera */
+  -khtml-user-select: all;    /* Konqueror */
+  -moz-user-select: all;      /* Firefox */
+  -ms-user-select: all;       /* IE/Edge */
 }
 #content{
 	padding-bottom:50px;

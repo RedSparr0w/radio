@@ -152,7 +152,7 @@
 			</div>
 			<div class="col-md-6 col-sm-12 col-xs-12">
 				<button id="Generate" class="btn btn-success col-md-4">Download <span class="glyphicon glyphicon-download-alt"></span></button>
-				<button id="View" class="btn btn-primary col-md-4">View <span class="glyphicon glyphicon-new-window"></span></button>
+				<button id="View" data-toggle="modal" data-target="#OutputModal" class="btn btn-primary col-md-4">View <span class="glyphicon glyphicon-new-window"></span></button>
 				<button id="Reset" class="btn btn-danger col-md-4">Reset <span class="glyphicon glyphicon-refresh"></span></button>
 			</div>
 		</div>
@@ -172,17 +172,17 @@
 				<button type="submit" id="CreateNew" class="btn btn-success">Create Command</button>
 				<button type="submit" id="FormatNew" class="btn btn-primary">Format Command</button>
 			</form>
-					
+
 			<p>The "label" text box is the label for the entry.<br>
 			This may contain spaces.</p>
-			
+
 			<p>The "Command" text box is the actual CS:GO Console command that will be used.</p>
 			<p>Example: <pre>voice_enable 0</pre></p>
-			
+
 			<p>Multi-line commands <strong>work!</strong><br>
 			In the command box, enter your commands in this format: <pre>sv_cheats 1;cl_drawhud 0;noclip</pre> or click the format button and we will do it for you!</p>
 			<p><strong>Do not</strong> enter alias/bind commands which activate multiple actions at once like so: <pre style="color:red">bind "h" "+jump;-attack"</pre> as the quote marks are removed when added, so your command will not execute as intended</p>
-			
+
 		</div>
 	</div>
 	<div id="Credits" class="modal fade" role="dialog">
@@ -199,6 +199,22 @@
 			<span><a href="https://github.com/Schwaitz" target="_BLANK"><img src="images/github.svg"></a><a href="https://steamcommunity.com/id/kuuy/" target="_BLANK"><img src="images/steam.svg"></a><a href="https://www.reddit.com/user/mcJustWas" target="_BLANK"><img src="images/reddit.svg"></a><a href="http://justwas.com" target="_BLANK"><img src="images/website.svg"></a></span>
 			<h3>RedSparr0w</h3>
 			<span><a href="https://github.com/RedSparr0w" target="_BLANK"><img src="images/github.svg"></a><a href="http://steamcommunity.com/id/RedSparr0w/" target="_BLANK"><img src="images/steam.svg"></a><a href="https://www.reddit.com/user/RedSparr0vv/" target="_BLANK"><img src="images/reddit.svg"></a><a href="http://csgo.redsparr0w.com" target="_BLANK"><img src="images/website.svg"></a></span>
+		  </div>
+		</div>
+
+	  </div>
+	</div>
+	<div id="OutputModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog modal-lg">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h2 class="modal-title">Output</h2>
+		  </div>
+		  <div class="modal-body">
+        <pre><code id="OutputCode"></code></pre>
 		  </div>
 		</div>
 
