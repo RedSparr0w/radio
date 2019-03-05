@@ -84,7 +84,7 @@ option {
   -moz-user-select: none;      /* Firefox */
   -ms-user-select: none;       /* IE/Edge */
 }
-#OutputCode {
+pre, code {
   user-select: all;
   -webkit-user-select: all;   /* Chrome/Safari/Opera */
   -khtml-user-select: all;    /* Konqueror */
